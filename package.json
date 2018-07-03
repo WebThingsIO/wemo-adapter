@@ -1,0 +1,43 @@
+{
+  "name": "wemo-adapter",
+  "display_name": "Wemo",
+  "version": "0.1.0",
+  "description": "Wemo device adapter plugin for Mozilla IoT Gateway",
+  "author": "Mozilla IoT",
+  "main": "main.py",
+  "keywords": [
+    "mozilla",
+    "iot",
+    "adapter",
+    "wemo"
+  ],
+  "homepage": "https://github.com/mozilla-iot/wemo-adapter",
+  "license": "MPL-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mozilla-iot/wemo-adapter.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mozilla-iot/wemo-adapter/issues"
+  },
+  "files": [
+    "LICENSE",
+    "SHA256SUMS",
+    "bootstrap.py",
+    "main.py",
+    "pkg/__init__.py",
+    "pkg/wemo_adapter.py",
+    "pkg/wemo_device.py",
+    "pkg/wemo_property.py",
+    "requirements.txt",
+    "setup.cfg"
+  ],
+  "moziot": {
+    "api": {
+      "min": 1,
+      "max": 2
+    },
+    "plugin": true,
+    "exec": "python3 {path}/bootstrap.py"
+  }
+}

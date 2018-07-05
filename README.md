@@ -8,10 +8,10 @@ Wemo device adapter for Mozilla IoT Gateway.
 
 * Smart plugs
     * Mini Smart Plug
+    * Insight Smart Plug
 
 ## Untested but _Should Work_
 
-* Insight Smart Plug
 * Light Switch
 * Dimmer
 

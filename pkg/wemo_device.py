@@ -73,7 +73,11 @@ class WemoSwitch(WemoDevice):
 
     def is_on(self):
         """Determine whether or not the switch is on."""
-        return bool(self.wemo_dev.get_state())
+        try:
+            state = int(self.wemo_dev.basic_state_params.get('BinaryState', 0))
+            return state != 0
+        except (ValueError, AttributeError):
+            return False
 
 
 class WemoInsight(WemoSwitch):

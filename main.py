@@ -9,7 +9,7 @@ import time
 
 sys.path.append(path.join(path.dirname(path.abspath(__file__)), 'lib'))
 
-from pkg.wemo_adapter import WemoAdapter  # flake8: noqa
+from pkg.wemo_adapter import WemoAdapter  # noqa
 
 
 _API_VERSION = {

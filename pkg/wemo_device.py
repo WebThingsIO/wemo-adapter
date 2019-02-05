@@ -1,6 +1,7 @@
 """Wemo adapter for Mozilla IoT Gateway."""
 
 from gateway_addon import Device
+from pywemo.ouimeaux_device.api.service import ActionException
 import threading
 import time
 
@@ -66,7 +67,11 @@ class WemoSwitch(WemoDevice):
         """Poll the device for changes."""
         while True:
             time.sleep(_POLL_INTERVAL)
-            self.wemo_dev.update_binary_state()
+
+            try:
+                self.wemo_dev.update_binary_state()
+            except ActionException:
+                continue
 
             for prop in self.properties.values():
                 prop.update()
@@ -112,8 +117,12 @@ class WemoInsight(WemoSwitch):
         """Poll the device for changes."""
         while True:
             time.sleep(_POLL_INTERVAL)
-            self.wemo_dev.update_binary_state()
-            self.wemo_dev.update_insight_params()
+
+            try:
+                self.wemo_dev.update_binary_state()
+                self.wemo_dev.update_insight_params()
+            except ActionException:
+                continue
 
             for prop in self.properties.values():
                 prop.update()
@@ -157,8 +166,12 @@ class WemoDimmer(WemoSwitch):
         """Poll the device for changes."""
         while True:
             time.sleep(_POLL_INTERVAL)
-            self.wemo_dev.update_binary_state()
-            self.wemo_dev.get_brightness(force_update=True)
+
+            try:
+                self.wemo_dev.update_binary_state()
+                self.wemo_dev.get_brightness(force_update=True)
+            except ActionException:
+                continue
 
             for prop in self.properties.values():
                 prop.update()

@@ -1,6 +1,7 @@
 """Wemo adapter for Mozilla IoT Gateway."""
 
-from gateway_addon import Property
+from gateway_addon import Property, PropertyError
+from pywemo.ouimeaux_device.api.service import ActionException
 
 
 class WemoProperty(Property):
@@ -31,7 +32,11 @@ class WemoSwitchProperty(WemoProperty):
         if self.name != 'on':
             return
 
-        self.device.wemo_dev.set_state(value)
+        try:
+            self.device.wemo_dev.set_state(value)
+        except ActionException:
+            raise PropertyError('Failed to set property')
+
         self.set_cached_value(value)
         self.device.notify_property_changed(self)
 
@@ -82,7 +87,11 @@ class WemoDimmerProperty(WemoProperty):
         if self.name != 'level':
             return
 
-        self.device.wemo_dev.set_brightness(value)
+        try:
+            self.device.wemo_dev.set_brightness(value)
+        except ActionException:
+            raise PropertyError('Failed to set property')
+
         self.set_cached_value(value)
         self.device.notify_property_changed(self)
 

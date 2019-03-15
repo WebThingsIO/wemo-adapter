@@ -50,7 +50,7 @@ class WemoSwitch(WemoDevice):
         """
         WemoDevice.__init__(self, adapter, _id, wemo_dev)
 
-        self._type = ['OnOffSwitch']
+        self._type = ['OnOffSwitch', 'SmartPlug']
         self.type = 'onOffSwitch'
 
         self.properties['on'] = WemoSwitchProperty(
@@ -99,7 +99,7 @@ class WemoInsight(WemoSwitch):
         WemoSwitch.__init__(self, adapter, _id, wemo_dev)
         self.wemo_dev.update_insight_params()
 
-        self._type.extend(['SmartPlug', 'EnergyMonitor'])
+        self._type.append('EnergyMonitor')
         self.type = 'smartPlug'
 
         self.properties['instantaneousPower'] = WemoInsightProperty(
@@ -132,6 +132,23 @@ class WemoInsight(WemoSwitch):
         return self.wemo_dev.current_power / 1000
 
 
+class WemoLightSwitch(WemoSwitch):
+    """Wemo light switch type."""
+
+    def __init__(self, adapter, _id, wemo_dev):
+        """
+        Initialize the object.
+
+        adapter -- the Adapter managing this device
+        _id -- ID of this device
+        wemo_dev -- the wemo device object to initialize from
+        """
+        WemoSwitch.__init__(self, adapter, _id, wemo_dev)
+
+        self._type = ['OnOffSwitch']
+        self.type = 'onOffSwitch'
+
+
 class WemoDimmer(WemoSwitch):
     """Wemo dimmer type."""
 
@@ -146,7 +163,7 @@ class WemoDimmer(WemoSwitch):
         WemoSwitch.__init__(self, adapter, _id, wemo_dev)
         self.wemo_dev.get_brightness(force_update=True)
 
-        self._type.append('MultiLevelSwitch')
+        self._type = ['OnOffSwitch', 'MultiLevelSwitch']
         self.type = 'multiLevelSwitch'
 
         self.properties['level'] = WemoDimmerProperty(

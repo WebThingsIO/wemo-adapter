@@ -3,7 +3,7 @@
 from gateway_addon import Adapter
 from pywemo import discover_devices, Insight, LightSwitch, Dimmer, Switch
 
-from .wemo_device import WemoDimmer, WemoInsight, WemoSwitch
+from .wemo_device import WemoDimmer, WemoInsight, WemoLightSwitch, WemoSwitch
 
 
 _TIMEOUT = 3
@@ -42,9 +42,10 @@ class WemoAdapter(Adapter):
             if _id not in self.devices:
                 if isinstance(dev, Insight):
                     device = WemoInsight(self, _id, dev)
-                elif isinstance(dev, LightSwitch) or \
-                        isinstance(dev, Switch):
+                elif isinstance(dev, Switch):
                     device = WemoSwitch(self, _id, dev)
+                elif isinstance(dev, LightSwitch):
+                    device = WemoLightSwitch(self, _id, dev)
                 elif isinstance(dev, Dimmer):
                     device = WemoDimmer(self, _id, dev)
                 else:

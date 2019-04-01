@@ -1,6 +1,6 @@
 # wemo-adapter
 
-Wemo device adapter for Mozilla IoT Gateway.
+Wemo device adapter for Mozilla WebThings Gateway.
 
 # Supported Devices
 

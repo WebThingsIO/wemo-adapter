@@ -1,4 +1,4 @@
-"""Wemo adapter for Mozilla IoT Gateway."""
+"""Wemo adapter for Mozilla WebThings Gateway."""
 
 from gateway_addon import Adapter
 from pywemo import discover_devices, Insight, LightSwitch, Dimmer, Switch

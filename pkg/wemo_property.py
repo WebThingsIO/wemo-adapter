@@ -1,4 +1,4 @@
-"""Wemo adapter for Mozilla IoT Gateway."""
+"""Wemo adapter for Mozilla WebThings Gateway."""
 
 from gateway_addon import Property, PropertyError
 from pywemo.ouimeaux_device.api.service import ActionException

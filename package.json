@@ -2,7 +2,7 @@
   "name": "wemo-adapter",
   "display_name": "Wemo",
   "version": "0.1.4",
-  "description": "Wemo device adapter plugin for Mozilla IoT Gateway",
+  "description": "Wemo device adapter plugin for Mozilla WebThings Gateway",
   "author": "Mozilla IoT",
   "main": "main.py",
   "keywords": [

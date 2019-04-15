@@ -33,6 +33,9 @@ class WemoAdapter(Adapter):
 
         timeout -- Timeout in seconds at which to quit pairing
         """
+        if self.pairing:
+            return
+
         self.pairing = True
         for dev in discover_devices():
             if not self.pairing:

@@ -1,7 +1,7 @@
 {
   "name": "wemo-adapter",
   "display_name": "Wemo",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Wemo device adapter plugin for Mozilla WebThings Gateway",
   "author": "Mozilla IoT",
   "main": "main.py",
@@ -23,14 +23,12 @@
   "files": [
     "LICENSE",
     "SHA256SUMS",
-    "bootstrap.py",
+    "lib",
     "main.py",
     "pkg/__init__.py",
     "pkg/wemo_adapter.py",
     "pkg/wemo_device.py",
-    "pkg/wemo_property.py",
-    "requirements.txt",
-    "setup.cfg"
+    "pkg/wemo_property.py"
   ],
   "moziot": {
     "api": {
@@ -38,6 +36,6 @@
       "max": 2
     },
     "plugin": true,
-    "exec": "python3 {path}/bootstrap.py"
+    "exec": "python3 {path}/main.py"
   }
 }

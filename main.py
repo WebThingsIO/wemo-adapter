@@ -13,7 +13,7 @@ from pkg.wemo_adapter import WemoAdapter  # noqa
 
 
 _API_VERSION = {
-    'min': 1,
+    'min': 2,
     'max': 2,
 }
 _ADAPTER = None

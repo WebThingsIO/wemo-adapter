@@ -1,0 +1,19 @@
+{
+  "author": "Mozilla IoT",
+  "description": "Wemo device adapter plugin for Mozilla WebThings Gateway",
+  "gateway_specific_settings": {
+    "webthings": {
+      "exec": "python3 {path}/main.py",
+      "primary_type": "adapter",
+      "strict_max_version": "*",
+      "strict_min_version": "0.10.0"
+    }
+  },
+  "homepage_url": "https://github.com/mozilla-iot/wemo-adapter",
+  "id": "wemo-adapter",
+  "license": "MPL-2.0",
+  "manifest_version": 1,
+  "name": "Wemo",
+  "short_name": "Wemo",
+  "version": "0.2.0"
+}

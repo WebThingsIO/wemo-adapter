@@ -51,17 +51,17 @@ class WemoSwitch(WemoDevice):
         WemoDevice.__init__(self, adapter, _id, wemo_dev)
 
         self._type = ['OnOffSwitch', 'SmartPlug']
-        self.type = 'onOffSwitch'
 
         self.properties['on'] = WemoSwitchProperty(
             self,
             'on',
             {
                 '@type': 'OnOffProperty',
-                'label': 'On/Off',
+                'title': 'On/Off',
                 'type': 'boolean',
             },
-            self.is_on())
+            self.is_on()
+        )
 
     def poll(self):
         """Poll the device for changes."""
@@ -100,18 +100,18 @@ class WemoInsight(WemoSwitch):
         self.wemo_dev.update_insight_params()
 
         self._type.append('EnergyMonitor')
-        self.type = 'smartPlug'
 
         self.properties['instantaneousPower'] = WemoInsightProperty(
             self,
             'instantaneousPower',
             {
                 '@type': 'InstantaneousPowerProperty',
-                'label': 'Power',
+                'title': 'Power',
                 'type': 'number',
                 'unit': 'watt',
             },
-            self.wemo_dev.current_power / 1000)
+            self.wemo_dev.current_power / 1000
+        )
 
     def poll(self):
         """Poll the device for changes."""
@@ -146,7 +146,6 @@ class WemoLightSwitch(WemoSwitch):
         WemoSwitch.__init__(self, adapter, _id, wemo_dev)
 
         self._type = ['OnOffSwitch']
-        self.type = 'onOffSwitch'
 
 
 class WemoDimmer(WemoSwitch):
@@ -164,20 +163,20 @@ class WemoDimmer(WemoSwitch):
         self.wemo_dev.get_brightness(force_update=True)
 
         self._type = ['OnOffSwitch', 'MultiLevelSwitch']
-        self.type = 'multiLevelSwitch'
 
         self.properties['level'] = WemoDimmerProperty(
             self,
             'level',
             {
                 '@type': 'LevelProperty',
-                'label': 'Level',
+                'title': 'Level',
                 'type': 'number',
                 'unit': 'percent',
                 'minimum': 0,
                 'maximum': 100,
             },
-            self.level())
+            self.level()
+        )
 
     def poll(self):
         """Poll the device for changes."""

@@ -1,4 +1,4 @@
-"""Wemo adapter for Mozilla WebThings Gateway."""
+"""Wemo adapter for WebThings Gateway."""
 
 from os import path
 import functools

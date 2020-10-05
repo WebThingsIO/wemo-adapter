@@ -1,2 +1,1 @@
-#pywemo==0.4.46
-git+https://github.com/pavoni/pywemo@d9cd5c246624ec7b81d63fcb6a02c983750f60f8#egg=pywemo
+pywemo==0.5.0
